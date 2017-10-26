@@ -1,0 +1,27 @@
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\bin\Debug\DnsDig.exe
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\bin\Debug\DnsDig.pdb
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.AboutForm.resources
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.MainForm.resources
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.Properties.Resources.resources
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.exe
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.pdb
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.csprojResolveAssemblyReference.cache
+C:\Users\alphons\Documents\Visual Studio 2010\Projects\DnsDig\DnsDig\obj\Debug\DnsDig.csproj.GenerateResource.Cache
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\bin\Debug\DnsDig.pdb
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\obj\Debug\DnsDig.csprojResolveAssemblyReference.cache
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\obj\Debug\DnsDig.Properties.Resources.resources
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\obj\Debug\DnsDig.csproj.GenerateResource.Cache
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\obj\Debug\DnsDig.csproj.CoreCompileInputs.cache
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\obj\Debug\DnsDig.pdb
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\bin\Debug\DnsDig.dll.config
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\bin\Debug\DnsDig.dll
+\\APPSRV\Ordnerumleitung\Joe\Desktop\DnsDig\DnsDig\obj\Debug\DnsDig.dll
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\bin\Debug\DnsDig.dll.config
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\bin\Debug\DnsDig.dll
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\bin\Debug\DnsDig.pdb
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\obj\Debug\DnsDig.csprojResolveAssemblyReference.cache
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\obj\Debug\DnsDig.Properties.Resources.resources
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\obj\Debug\DnsDig.csproj.GenerateResource.Cache
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\obj\Debug\DnsDig.csproj.CoreCompileInputs.cache
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\obj\Debug\DnsDig.dll
+C:\Users\Joe\Source\Repos\NIHT\DnsDig\obj\Debug\DnsDig.pdb
