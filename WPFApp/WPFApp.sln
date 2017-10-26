@@ -12,6 +12,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasePlugins", "..\BasePlugi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnsDig", "..\DnsDig\DnsDig.csproj", "{B1EACF94-22A9-4C47-9BE5-33332E39E07B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{079C9CC8-359B-4B53-855E-C5AB0612BA9B}"
+	ProjectSection(SolutionItems) = preProject
+		..\CHANGELOG = ..\CHANGELOG
+		..\README = ..\README
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
