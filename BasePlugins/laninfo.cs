@@ -1,5 +1,4 @@
-﻿using Heijden.DNS;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace NIHT.Plugins.Base {
-    public class laninfo : PluginInterface {
+    public class LanInfo : NetworkTools, PluginInterface {
         #region IPlugin Members 
         Grid grd;
         public string Name {
@@ -55,9 +54,9 @@ namespace NIHT.Plugins.Base {
             createline(grd, 5, "5 NSLookup DNS Google", "www.google.de", true);
             Canvas canv;
             IWebProxy proxy = WebRequest.GetSystemWebProxy();
-            if (proxy.GetProxy(new Uri("http://www.microsoft.com")).Host != "www.microsoft.com") {
-                createline(grd, 6, "6 Ping Proxyserver", proxy.GetProxy(new Uri("http://www.microsoft.com")).Host, true);
-                FindChild<TextBox>(grd, "txt_res6").Text = proxy.GetProxy(new Uri("http://www.microsoft.com")).AbsoluteUri;
+            if (proxy.GetProxy(new Uri("http://www.asfdfasdas.neto")).Host != "www.asfdfasdas.neto") {
+                createline(grd, 6, "6 Ping Proxyserver", proxy.GetProxy(new Uri("http://www.asfdfasdas.neto")).Host, true);
+                FindChild<TextBox>(grd, "txt_res6").Text = proxy.GetProxy(new Uri("http://www.asfdfasdas.neto")).AbsoluteUri;
             } else {
                 createline(grd, 6, "6 Ping Proxyserver", "", false);
                 canv = FindChild<Canvas>(grd, "poi_6");
@@ -155,7 +154,7 @@ namespace NIHT.Plugins.Base {
             string ip = FindChild<TextBox>(grd, feldname).Text;
             if (ip == "")
                 return "";
-            else if (pingip(ip))
+            else if (Ping(ip))
                 return "green";
             else
                 return "red";
@@ -176,74 +175,6 @@ namespace NIHT.Plugins.Base {
                 Width = 15,
                 Stroke = brush
             };
-        }
-
-        private bool pingip(string ip) {
-            Ping pingSender = new Ping();
-            PingOptions options = new PingOptions();
-
-            // Use the default Ttl value which is 128,
-            // but change the fragmentation behavior.
-            options.DontFragment = true;
-
-            // Create a buffer of 32 bytes of data to be transmitted.
-            string data = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-            byte[] buffer = Encoding.ASCII.GetBytes(data);
-            int timeout = 120;
-            PingReply reply = pingSender.Send(ip, timeout, buffer, options);
-            if (reply.Status == IPStatus.Success) {
-                Console.WriteLine("Address: {0}", reply.Address.ToString());
-                Console.WriteLine("RoundTrip time: {0}", reply.RoundtripTime);
-                Console.WriteLine("Time to live: {0}", reply.Options.Ttl);
-                Console.WriteLine("Don't fragment: {0}", reply.Options.DontFragment);
-                Console.WriteLine("Buffer size: {0}", reply.Buffer.Length);
-                return true;
-            }
-            return false;
-        }
-        protected string DNSLookup(string hostNameOrAddress) {
-            try {
-                IPHostEntry hostEntry = Dns.GetHostEntry(hostNameOrAddress);
-
-                IPAddress[] ips = hostEntry.AddressList;
-
-                return string.Join("; ", ips.Select(m => m.ToString()));
-            } catch (System.Net.Sockets.SocketException) {
-                return "";
-            }
-        }
-        protected string DNSLookupCustom(string hostNameOrAddress, string DNSServer) {
-            Resolver resolver = new Resolver();
-            Stopwatch sw = new Stopwatch();
-
-            sw.Start();
-            Response response = resolver.Query(hostNameOrAddress, QType.A, QClass.IN);
-            sw.Stop();
-
-            if (response.Error != "" || (response.RecordsA.Length == 0 && response.RecordsAAAA.Length == 0)) {
-                Console.WriteLine(";; " + response.Error);
-                return "";
-            } else {
-                return response.RecordsA[0].ToString();
-            }
-        }
-        internal static T FindChild<T>(DependencyObject parent, string childName) where T : DependencyObject {
-            T foundChild = null;
-            System.Collections.IEnumerable children = LogicalTreeHelper.GetChildren(parent);
-            foreach (object child in children) {
-                if (child is DependencyObject) {
-                    DependencyObject depChild = child as DependencyObject;
-                    if (child is FrameworkElement frameworkElement && frameworkElement.Name.IsEqual(childName)) {
-                        try {
-                            foundChild = (T)child;
-                        } catch {
-                        }
-                    } else
-                        foundChild = FindChild<T>(depChild, childName);
-                    if (foundChild != null) return foundChild;
-                }
-            }
-            return foundChild;
         }
 
         public string Action(int action, object extra) {

@@ -125,6 +125,10 @@
       <Project>{cc1ed857-4f98-4fc6-9334-b5c8033676e9}</Project>
       <Name>BasePlugins</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LanscannerPlugin\LanscannerPlugin.csproj">
+      <Project>{d0aa7cd8-44c2-4ec6-bc95-0e1fb0f492a7}</Project>
+      <Name>LanscannerPlugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Itzikgur-My-Seven-Network-2.ico" />
