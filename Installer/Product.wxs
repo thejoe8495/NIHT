@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:ui="http://schemas.microsoft.com/wix/UIExtension">
+  <Product Id="*" Name="NIHT Network Information Helper Tool" Language="1033" Version="!(bind.FileVersion.Runexe)" Manufacturer="Jörg Stemmer" UpgradeCode="80a66b0e-eaf1-4915-9a18-d869f6222654">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <Media Id="1" Cabinet="CabFileName.cab" EmbedCab="yes" />
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    <UIRef Id="WixUI_FeatureTree" />
+    <WixVariable Id="WixUILicenseRtf" Value="cc.rtf" />
+    <MajorUpgrade AllowDowngrades="no" AllowSameVersionUpgrades="yes" DowngradeErrorMessage="A later version of [ProductName] is already installed. Setup will now exit."/>
+    <Feature Id="MainApp" Title="NIHT Network Information Helper Tool" Level="1" Absent="disallow" AllowAdvertise="no" InstallDefault="local">
+      <ComponentRef Id="Runningexe" />
+      <ComponentRef Id="StartmenueShortcut" />
+      <ComponentRef Id="BasePluginsComponent" />
+    </Feature>
+    <Feature Id="LanScanner" Title="NIHT LanScanner Plugin">
+      <ComponentRef Id="ScannerPluginComponent"/>
+    </Feature>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="NIHT" >
+          <Component Id="Runningexe" Guid="C981B210-31CD-4F25-84CA-86A21E0CFFD7">
+            <File Id="runexe" Source="$(var.WPFApp.TargetPath)" KeyPath="yes" Checksum="yes"/>
+            <File Source="$(var.WPFApp.TargetDir)MahApps.Metro.dll" Checksum="yes"/>
+            <File Source="$(var.WPFApp.TargetDir)System.Windows.Interactivity.dll" Checksum="yes"/>
+            <File Id="basetools" Source="$(var.Basetools.TargetPath)"/>
+          </Component>
+          <Directory Id="PLUGINS" Name="plugins">
+            <Component Id="BasePluginsComponent" Guid="5FB0673E-0C28-4291-8A47-FDCD4EE75B5A">
+              <File Id="baseplugins" Source="$(var.BasePlugins.TargetPath)" KeyPath="yes" Checksum="yes"/>
+            </Component>
+            <Component Id="ScannerPluginComponent" Guid="02CD07AD-723F-45C9-A702-9E44A0A6F9FE">
+              <File Id="lanscanner" Source="$(var.LanscannerPlugin.TargetPath)" KeyPath="yes" Checksum="yes"/>
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Component Id="StartmenueShortcut" Guid="7842DCA0-C497-4CE6-BDAA-9516C1B753E1">
+          <Shortcut Id="ApplicationStartMenuShortcut" Name="NIHT" Target="[#runexe]" WorkingDirectory="INSTALLFOLDER"/>
+          <RegistryValue Root="HKCU" Key="Software\NIHT" Name="StartMenueicon" Type="integer" Value="1" KeyPath="yes"/>
+        </Component>
+      </Directory>
+    </Directory>
+  </Product>
+</Wix>

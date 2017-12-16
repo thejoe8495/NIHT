@@ -25,7 +25,7 @@ namespace NIHT.WPFApp {
         public MainWindow() {
             InitializeComponent();
             string path = System.Reflection.Assembly.GetEntryAssembly().Location;
-                dllFileNames = Directory.GetFiles(Directory.GetCurrentDirectory(), "Plugin.*.dll");
+                dllFileNames = Directory.GetFiles(Directory.GetCurrentDirectory() + "/plugins", "Plugin.*.dll");
             ICollection<Assembly> assemblies = new List<Assembly>(dllFileNames.Length);
             foreach (string dllFile in dllFileNames) {
                 AssemblyName an = AssemblyName.GetAssemblyName(dllFile);

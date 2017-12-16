@@ -8,8 +8,8 @@
     <ProjectGuid>{B1EACF94-22A9-4C47-9BE5-33332E39E07B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DnsDig</RootNamespace>
-    <AssemblyName>DnsDig</AssemblyName>
+    <RootNamespace>NIHT.Plugins.Base</RootNamespace>
+    <AssemblyName>Basetools</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -45,7 +45,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>none</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -57,8 +57,32 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dns\Records\NotUsed\RecordSSHFP.cs" />
@@ -127,6 +151,9 @@
     <Compile Include="Dns\RR.cs" />
     <Compile Include="Dns\RecordReader.cs" />
     <Compile Include="Dns\Resolver.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="NetworkTools.cs" />
+    <Compile Include="PluginInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -154,16 +181,7 @@
     <Compile Include="Dns\Structs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Doc\rfc1034.txt" />
-    <None Include="Doc\rfc1035.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Doc\rfc1886.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Dns\Root\named_root.txt" />
-    <Content Include="Doc\rfc2782.txt" />
-    <Content Include="Doc\rfc2915.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
