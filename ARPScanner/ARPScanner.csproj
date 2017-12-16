@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D0AA7CD8-44C2-4EC6-BC95-0E1FB0F492A7}</ProjectGuid>
+    <ProjectGuid>{B4879FD3-73BD-49F4-BA71-2104BF4ECF41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NIHT.Plugins.Lanscanner</RootNamespace>
-    <AssemblyName>Plugin.Lanscanner</AssemblyName>
+    <RootNamespace>NIHT.Plugins.ARPScanner</RootNamespace>
+    <AssemblyName>Plugin.ARPScanner</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -48,22 +48,18 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LanScanner.cs" />
-    <Compile Include="PCLine.cs" />
+    <Compile Include="ARPScanner.cs" />
+    <Compile Include="pcapwrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,9 +72,5 @@
   <PropertyGroup>
     <PostBuildEvent>mkdir "$(SolutionDir)WPFApp\bin\$(Configuration)\plugins\"
 copy "$(TargetPath)" "$(SolutionDir)WPFApp\bin\$(Configuration)\plugins\$(TargetFileName)"</PostBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
   </PropertyGroup>
 </Project>

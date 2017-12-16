@@ -11,8 +11,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using NIHT.Plugins.Base;
 
-namespace NIHT.Plugins.Base {
+namespace NIHT.Plugins.LanInfo {
     public class LanInfo : NetworkTools, PluginInterface {
         #region IPlugin Members 
         Grid grd;

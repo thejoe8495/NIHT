@@ -26,12 +26,15 @@ namespace NIHT.Plugins.Base {
             int success = 0;
             Console.WriteLine("Ping wird ausgeführt für " + ip + " mit 32 Bytes Daten:");
             for (int i = 0; i < menge; i++) {
-                PingReply reply = pingSender.Send(ip, timeout, buffer, options);
-                if (reply.Status == IPStatus.Success) {
-                    Console.WriteLine("Antwort von {0} Bytes = {1} Zeit {2}ms TTL = {3}", ip, reply.Buffer.Length, reply.RoundtripTime, reply.Options.Ttl);
-                    success++;
-                }else
-                    Console.WriteLine("Zeitüberschreitung");
+                try {
+                    PingReply reply = pingSender.Send(ip, timeout, buffer, options);
+                    if (reply.Status == IPStatus.Success) {
+                        //Console.WriteLine("Antwort von {0} Bytes = {1} Zeit {2}ms TTL = {3}", ip, reply.Buffer.Length, reply.RoundtripTime, reply.Options.Ttl);
+                        success++;
+                    } //else
+                        //Console.WriteLine("Zeitüberschreitung");
+                } catch { 
+                }
             }
             if (success > 0) return true;
             return false;
@@ -39,9 +42,7 @@ namespace NIHT.Plugins.Base {
         public static string DNSLookup(string hostNameOrAddress) {
             try {
                 IPHostEntry hostEntry = Dns.GetHostEntry(hostNameOrAddress);
-
                 IPAddress[] ips = hostEntry.AddressList;
-
                 return string.Join("; ", ips.Select(m => m.ToString()));
             } catch (System.Net.Sockets.SocketException) {
                 return "";

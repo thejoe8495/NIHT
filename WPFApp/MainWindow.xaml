@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="NIHT Network Info Helper Tool" Height="546.875" Width="739.773" TitlebarHeight="50" EnableDWMDropShadow="True" BorderThickness="1"  BorderBrush="{DynamicResource AccentColorBrush}" Icon="Itzikgur-My-Seven-Network-2.ico">
+        Title="NIHT Network Info Helper Tool" MinHeight="550" MinWidth="740" Height="550" Width="740" TitlebarHeight="50" EnableDWMDropShadow="True" BorderThickness="1"  BorderBrush="{DynamicResource AccentColorBrush}" Icon="icon.ico">
     <Grid>
         <TabControl x:Name="tac_tabs" Margin="10">
             <TabItem Header="Settings">
